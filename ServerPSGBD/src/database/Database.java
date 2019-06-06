@@ -8,7 +8,7 @@ public class Database {
 
 	private static final String URL = "jdbc:oracle:thin:@localhost:1521:xe";
     private static final String USER = "student";
-    private static final String PASSWORD = "34dh34";
+    private static final String PASSWORD = "student";
     private static Connection connection = null;
     private Database() { }
     public static Connection getConnection() throws SQLException {
