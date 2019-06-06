@@ -60,6 +60,7 @@ public class ClientThread extends Thread {
    		client.registerOutParameter(1, Types.INTEGER);
    		client.setString(2, request.split(" ")[1]);
    		client.setString(3, request.split(" ")[2]);
+   		//client.setString(3, request.substring(request.split(" ")[0].length()+request.split(" ")[1].length()+2));
    		username = request.split(" ")[1];
    		client.execute();
    		int log = client.getInt(1);
@@ -107,6 +108,7 @@ public class ClientThread extends Thread {
     		CallableStatement client = con.prepareCall("begin update_camera(?,?,?); end;");
     		id_camera = Integer.parseInt(request.split(" ")[1]);
     		client.setInt(1, id_camera);
+    		//client.setString(1, request.substring(5)); //parte care permite injectare
        		client.setString(2, username);
        		client.registerOutParameter(3, Types.VARCHAR);
        		client.execute();
@@ -165,7 +167,7 @@ public class ClientThread extends Thread {
       		String response = null;
 			 int id_intrebare;
 			 int id_domeniu = 0;
-			 for(int i = 1; i<=1; i++) {
+			 for(int i = 1; i<=2; i++) {
 				 
 				 CallableStatement client = con.prepareCall("begin select_o_intrebare(?,?); end;");
 		       		client.setInt(1, id_camera);
